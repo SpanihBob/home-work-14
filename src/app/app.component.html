@@ -1,0 +1,73 @@
+<div>
+  <div *ngIf="bookList">        <!-- div выводит список книг -->
+    <div>
+      <h3 style="text-align: center; color: rgb(30, 27, 37);">Choose a book</h3>
+    </div>
+    <div>
+      <app-list *ngFor="let iterBook of myBook; let idx=index" 
+                [book]="iterBook" [index]="idx"  (click)="closeList(idx)"></app-list>
+    </div>
+  </div>
+
+  <div *ngIf="!bookList">       <!-- div выводит книгу -->
+    <button style="margin: auto;" (click)="closeList($event)"><img style="width: 20px; height: 20px;" src="https://webstockreview.net/images/multiplication-clipart-icon-6.png" alt=""></button>
+    <div class="container">
+      <div class="sidebar">
+        <div>
+          <img class="logo" src="{{myBook[bookNumber].img}}" alt="">
+        </div>
+        <div>
+          <button class="btn" (click)="tapInfoButton()"><span class="btnName">Info</span></button>
+          <button class="btn" (click)="tapAuthorButton()"><span class="btnName">Author</span></button>    
+        </div>
+    </div>
+  
+     <div class="infoBook">
+      <div class="info">
+        <app-massage *ngIf="infoButton" [bookNumber]="bookNumber" [myBook]="myBook[bookNumber]"></app-massage>
+        <app-prise *ngIf="authorButton" [bookNumber]="bookNumber" [myBook]="myBook[bookNumber]"></app-prise>
+      </div>
+
+      <div></div>
+
+        <!-- <div *ngIf="likeButton">
+          <p><b>User Info:</b></p>
+          <div *ngIf="enterInf">{{ userInfo }}</div>
+          <textarea *ngIf="!enterInf" id="textareaInfo" [(ngModel)]="textareaInfo" ></textarea>
+          <button (click)="userInfo=textareaInfo; enterInfo()">Add</button>
+        </div> -->
+  
+      <!-- <div *ngIf="!likeButton"><ul><b>like:</b>
+                                  <li>I like swim <br><img class="iLikeImg" src="https://n1s2.hsmedia.ru/3e/ec/f6/3eecf657cca795ad7566cb78512b5be9/728x410_1_b998bf7db7aaa2d6c1c4ed6c610f15cb@1920x1080_0xac120003_17196039681627504148.jpg" alt=""></li>
+                                  <li>I like run <br><img class="iLikeImg" src="https://skirun.ru/uploads/post/image/0/44/4494/run.png" alt=""></li>
+                                  <li>I like read books <br><img class="iLikeImg" src="https://stickers.wiki/static/stickers/thesimpsonsru/file_209034.webp?ezimgfmt=rs:114x134/rscb1/ng:webp/ngcb1" alt=""></li> </ul></div>
+      </div> -->
+      <!-- <div class="massage">
+        <b>Massage:</b><br>
+        <app-massage *ngFor="let iterLetter of letters; let idx=index" [letter]="iterLetter" [index]="idx"></app-massage>
+        <div style="display: flex; justify-self: center;">
+          <input type="text" [(ngModel)]="userLetter"  style="width: 98%; margin-top: 3px; margin-bottom: 3px;">
+          <button (click)="pushLetter()">Get</button>
+        </div>
+      </div> -->
+  
+      <!-- <div class="questions">
+        <p>are you a human or a robot?</p>   
+        <input type="text" #miInput (input)="answer(miInput.value)" style="width: 98%; margin-top: 3px; margin-bottom: 3px;">   
+        <button (click)="outputTheAnswer()">Enter</button>
+        <div *ngIf="haveAnAnswer" [ngSwitch]="answerToQuestion.toLowerCase()">
+          <div *ngSwitchCase="'human'">You a human</div>
+          <div *ngSwitchCase="'robot'">You a robot</div>
+          <div *ngSwitchDefault>I do not know who you are</div>
+        </div>
+      </div> -->
+    
+    
+  
+    <!-- <div class="prise">
+      <app-prise *ngFor="let iterSell of iSell; let idx1=index" [sell]="iterSell" [index1]="idx1"></app-prise>
+    </div> -->
+    
+  </div>
+  </div>
+</div>

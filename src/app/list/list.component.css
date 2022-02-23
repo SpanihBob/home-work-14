@@ -1,0 +1,13 @@
+p{  
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    text-align: center;
+    width: 70vw;
+    border: rgb(155, 152, 152) solid 1px;
+    border-radius: 3px;
+    background-color: rgb(224, 222, 222);
+}
+div :hover{
+    cursor: pointer;
+ }
